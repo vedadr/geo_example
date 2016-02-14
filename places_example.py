@@ -24,3 +24,16 @@ jsonData = json.loads(jsonRaw)  # this will convert json into python object
 results = ','.join([result['name'] for result in jsonData['results']]) #ja dodao samo da ispiltriram nazive
 
 print('Rezultati: {}'.format(results))
+
+#################### points of interest
+response = urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+                                  "location=43.855624,18.379420" # your location in lat long coordinates
+                                  "&radius=500" # radius in meters around coordinates to include in search
+                                  "&types=bank" # type of venue, try with cafe, bank etc.
+                                  # "&name=slatko" # include for filtering by name
+                                  "&key=AIzaSyBIde_4tmXK7iajeV2eMCMcREwTKaboWNE") # key for identification, create your own
+jsonRaw = response.read().decode('utf-8')
+jsonData = json.loads(jsonRaw)
+results = [result['name'] for result in jsonData['results']]
+
+print('Results:  {}'.format(results))
