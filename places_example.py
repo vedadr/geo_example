@@ -2,7 +2,7 @@
 # from geopy import geocoders
 #
 # g = geocoders.GoogleV3()
-# place, (lat, lng) = g.geocode("Olimpijska 26, sarajevo")
+# place, (lat, lng) = g.geocode("Olimpijska 32, sarajevo")
 # print("{} {} {}".format(place, lat, lng))
 #
 
@@ -16,7 +16,7 @@ response = urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json
                                   "&radius=500" # radius in meters around coordinates to include in search
                                   "&types=food" # type of venue, try with cafe, bank etc.
                                   # "&name=slatko" # include for filtering by name
-                                  "&key=AIzaSyBIde_4tmXK7iajeV2eMCMcREwTKaboWNE") # key for identification, create your own
+                                  "&key=") # key for identification, create your own
 
 jsonRaw = response.read().decode('utf-8') # this will read json from downloaded object
 jsonData = json.loads(jsonRaw)  # this will convert json into python object
@@ -31,7 +31,7 @@ response = urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json
                                   "&radius=500" # radius in meters around coordinates to include in search
                                   "&types=bank" # type of venue, try with cafe, bank etc.
                                   # "&name=slatko" # include for filtering by name
-                                  "&key=AIzaSyBIde_4tmXK7iajeV2eMCMcREwTKaboWNE") # key for identification, create your own
+                                  "&key=") # key for identification, create your own
 jsonRaw = response.read().decode('utf-8')
 jsonData = json.loads(jsonRaw)
 results = [result['name'] for result in jsonData['results']]
